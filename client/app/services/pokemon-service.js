@@ -7,6 +7,8 @@ angular.module('poke.services')
             return $http({
                 method: 'get',
                 url: base + '/pokemon'
+            }).then(function (response) {
+                return response.data;  
             });
         }
 

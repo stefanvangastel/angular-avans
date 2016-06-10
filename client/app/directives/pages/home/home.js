@@ -5,10 +5,10 @@ angular.module('poke.directives')
             controllerAs: 'pageHome',
             controller: ['pokemonService', function (pokemonService){
 
-                var vm = this;
-                pokemonService.getAllPokemons().then(function (response) {
-                    console.log(response);
-                    vm.pokemons = response.data;
+                var vm = this; //Vervangt scope, nog steeds binnen digest cycle
+                pokemonService.getAllPokemons().then(function (pokemons) {
+                    console.log(pokemons);
+                    vm.pokemons = pokemons;
                 });
             }]
         };
